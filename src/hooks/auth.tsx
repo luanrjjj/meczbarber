@@ -34,10 +34,6 @@ const AuthProvider: React.FC = ({ children }) => {
   const [data, setData] = useState<AuthState>(() => {
     const token = localStorage.getItem('@GoBarber:token');
     const user = localStorage.getItem('@GoBarber:user');
-    // eslint-disable-next-line no-console
-    console.log('token', token);
-    // eslint-disable-next-line no-console
-    console.log('user', user);
 
     if (token && user) {
       api.defaults.headers.authorization = `Bearer ${token}`;
@@ -81,8 +77,7 @@ const AuthProvider: React.FC = ({ children }) => {
     },
     [data.token],
   );
-  // eslint-disable-next-line no-console
-  console.log('dataauth', data);
+
   return (
     // eslint-disable-next-line react/jsx-filename-extension
     <AuthContext.Provider
