@@ -77,7 +77,8 @@ const AuthProvider: React.FC = ({ children }) => {
     },
     [data.token],
   );
-
+  // eslint-disable-next-line no-console
+  console.log(data);
   return (
     // eslint-disable-next-line react/jsx-filename-extension
     <AuthContext.Provider

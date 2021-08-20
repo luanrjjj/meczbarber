@@ -60,7 +60,7 @@ const Dashboard: React.FC = () => {
       setSelectedDate(day);
     }
   }, []);
-  console.log(appointments);
+
   const handleMonthChange = useCallback((month: Date) => {
     setCurrentMonth(month);
   }, []);

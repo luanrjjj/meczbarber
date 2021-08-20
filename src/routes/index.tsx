@@ -9,6 +9,8 @@ import ForgotPassword from '../pages/ForgotPassword';
 import ResetPassword from '../pages/ResetPassword';
 import Profile from '../pages/profile';
 import Dashboard from '../pages/Dashboard';
+import Barbers from '../pages/Barbers';
+import Appointment from '../pages/Appointment';
 
 const Routes: React.FC = () => {
   return (
@@ -20,6 +22,8 @@ const Routes: React.FC = () => {
       <Route path="/reset-password" component={ResetPassword} />
       <Route path="/dashboard" component={Dashboard} isPrivate />
       <Route path="/profile" component={Profile} isPrivate />
+      <Route path="/barbers" component={Barbers} isPrivate />
+      <Route path="/appointment" component={Appointment} isPrivate />
     </Switch>
   );
 };
