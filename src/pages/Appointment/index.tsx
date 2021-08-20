@@ -18,6 +18,7 @@ import {
   SectionContent,
   Hours,
   Hour,
+  HourText,
 } from './styles';
 import 'react-day-picker/lib/style.css';
 import logoImg from '../../assets/logo.svg';
@@ -182,10 +183,13 @@ const Appointment: React.FC = () => {
                 available={available}
                 selected={hour === selectedHour}
                 key={hourFormatted}
-                onClick={() => setSelectedHour(hour)}
+                onClick={() => {
+                  return setSelectedHour(hour);
+                }}
               >
-                {' '}
-                {hour}
+                <HourText selected={hour === selectedHour}>
+                  {hourFormatted}
+                </HourText>
               </Hour>
             ))}
           </Hours>
@@ -197,9 +201,13 @@ const Appointment: React.FC = () => {
                 available={available}
                 selected={hour === selectedHour}
                 key={hourFormatted}
+                onClick={() => {
+                  return setSelectedHour(hour);
+                }}
               >
-                {' '}
-                {hour}
+                <HourText selected={hour === selectedHour}>
+                  {hourFormatted}
+                </HourText>
               </Hour>
             ))}
           </Hours>

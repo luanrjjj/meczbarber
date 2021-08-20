@@ -6,6 +6,10 @@ interface HourProps {
   selected: boolean;
 }
 
+interface HourTextProps {
+  selected: boolean;
+}
+
 export const Container = styled.div``;
 
 export const Header = styled.header`
@@ -143,7 +147,6 @@ export const Hours = styled.div`
 `;
 
 const Button = styled.button`
-  background: palevioletred;
   border-radius: 3px;
   border: none;
   color: white;
@@ -151,15 +154,16 @@ const Button = styled.button`
 export const Hour = styled(Button).attrs((props: HourProps) => ({
   enabled: props.available,
 }))<HourProps>`
-  padding: 12px;
+  padding: 10px;
   background: ${props => (props.selected ? '#FF9000' : '#3e3b47')};
   border-radius: 10px;
   margin-right: 8px;
   opacity: ${props => (props.available ? 1 : 0.3)};
 `;
-export const HourText = styled.text`
-  padding: 12px;
+export const HourText = styled.span<HourTextProps>`
+  color: ${props => (props.selected ? '#232129' : '#f4ede8')};
   background: '#FF9000';
-  border-radius: 10px;
+  padding: 10px;
+  border-radius: 5px;
   margin-right: 8px;
 `;
