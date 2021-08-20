@@ -60,19 +60,18 @@ const Barbers: React.FC = () => {
         <ProvidersList>
           {providers.length === 0 && <p>Nenhum Cabeleleiros Disponível</p>}
           {providers.map(provider => (
-            <>
-              <Link
-                to={{
-                  pathname: `/appointment `,
-                  state: { provider },
-                }}
-              >
-                <div>
-                  <img src={provider.avatar_url} alt={provider.name} />
-                  <p>{provider.name}</p>
-                </div>
-              </Link>
-            </>
+            <Link
+              to={{
+                pathname: `/appointment/${provider.name} `,
+                state: { provider },
+              }}
+              key={provider.id}
+            >
+              <div key={provider.id}>
+                <img src={provider.avatar_url} alt={provider.name} />
+                <p>{provider.name}</p>
+              </div>
+            </Link>
           ))}
         </ProvidersList>
       </Section>

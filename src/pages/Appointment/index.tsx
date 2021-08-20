@@ -39,10 +39,11 @@ interface MonthAvailabilityItem {
 }
 
 const Appointment: React.FC = () => {
+  console.log('aqui');
+  const { user, signOut } = useAuth();
   const { handle }: any = useParams();
   const location = useLocation();
 
-  const { user, signOut } = useAuth();
   const [provider1, setProvider] = useState<Provider[]>([]);
 
   const objectProvider: any = location.state;
