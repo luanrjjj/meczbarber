@@ -19,9 +19,12 @@ import {
   Hours,
   Hour,
   HourText,
+  ButtonSubmit,
+  ButtonSubmitText,
 } from './styles';
 import 'react-day-picker/lib/style.css';
 import logoImg from '../../assets/logo.svg';
+import { useToast } from '../../hooks/toast';
 
 export interface Provider {
   id: string;
@@ -43,6 +46,7 @@ const Appointment: React.FC = () => {
   const { user, signOut } = useAuth();
   const { handle }: any = useParams();
   const location = useLocation();
+  const { addToast } = useToast();
 
   const [provider1, setProvider] = useState<Provider[]>([]);
 
@@ -78,6 +82,27 @@ const Appointment: React.FC = () => {
   const handleMonthChange = useCallback((month: Date) => {
     setCurrentMonth(month);
   }, []);
+
+  const handleCreateAppointment = useCallback(async () => {
+    try {
+      const date = new Date(selectedDate);
+
+      date.setHours(selectedHour);
+      date.setMinutes(0);
+
+      await api.post('appointments', {
+        provider_id: selectedProvider.id,
+        date,
+      });
+    } catch (err) {
+      addToast({
+        type: 'error',
+        title: 'Erro ao criar agendamento',
+        description:
+          'Ocorreu um erro ao tentar criar o agendamento, tente novamente!',
+      });
+    }
+  }, [selectedProvider, selectedDate, selectedHour]);
 
   useEffect(() => {
     api
@@ -212,6 +237,9 @@ const Appointment: React.FC = () => {
               </Hour>
             ))}
           </Hours>
+          <ButtonSubmit onClick={handleCreateAppointment}>
+            <ButtonSubmitText>Agendar</ButtonSubmitText>
+          </ButtonSubmit>
         </SectionContent>
       </Section>
     </Container>

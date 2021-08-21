@@ -12,6 +12,12 @@ interface RouteProps extends ReactDOMRouteProps {
   isPrivate?: boolean;
   component: React.ComponentType;
 }
+const barbers = [
+  'amanda.vieira@poli.ufrj.br',
+  'luanfreitas12@poli.ufrj.br',
+  'luanfreitas12@hotmail.com',
+  'antonio.vieira@poli.ufrj.br',
+];
 
 const Route: React.FC<RouteProps> = ({
   isPrivate = false,
@@ -19,6 +25,7 @@ const Route: React.FC<RouteProps> = ({
   ...rest
 }) => {
   const { user } = useAuth();
+  const barberVerify = barbers.includes(user?.email);
 
   return (
     <ReactDOMRoute
@@ -29,7 +36,12 @@ const Route: React.FC<RouteProps> = ({
         ) : (
           <Redirect
             to={{
-              pathname: isPrivate ? '/signin' : '/dashboard',
+              // eslint-disable-next-line no-nested-ternary
+              pathname: isPrivate
+                ? '/signin'
+                : barberVerify
+                ? '/dashboard'
+                : '/barbers',
               state: { from: location },
             }}
           />

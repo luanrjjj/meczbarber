@@ -167,3 +167,21 @@ export const HourText = styled.span<HourTextProps>`
   border-radius: 5px;
   margin-right: 8px;
 `;
+
+export const ButtonSubmit = styled(Button)`
+  background: #ff9000;
+  border-radius: 10px;
+  height: 50px;
+  margin: 0 24px 24px;
+
+  justify-content: center;
+  align-items: center;
+`;
+
+export const ButtonSubmitText = styled(Button)`
+  color: #312e38;
+  font-size: 18px;
+  font-family: 'RobotoSlab-Medium';
+  background: transparent;
+  font-weight: bold;
+`;

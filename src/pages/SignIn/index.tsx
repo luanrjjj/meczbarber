@@ -26,7 +26,14 @@ const SignIn: React.FC = () => {
 
   const { signIn } = useAuth();
   const { addToast } = useToast();
-
+  /*
+  const barbers = [
+    'amanda.vieira@poli.ufrj.br',
+    'luanfreitas12@poli.ufrj.br',
+    'luanfreitas12@hotmail.com',
+    'antonio.vieira@poli.ufrj.br',
+  ];
+  */
   const history = useHistory();
   // eslint-disable-next-line no-console
   console.log(history);
@@ -51,8 +58,12 @@ const SignIn: React.FC = () => {
           email: data.email,
           password: data.password,
         });
+        /*
+        const barberVerify = barbers.includes(data.email);
 
-        history.push('/dashboard');
+        if (barberVerify) {
+          history.push('/dashboard');
+        } */
       } catch (err) {
         if (err instanceof Yup.ValidationError) {
           const errors = getValidationErrors(err);

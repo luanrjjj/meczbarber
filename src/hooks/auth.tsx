@@ -55,6 +55,8 @@ const AuthProvider: React.FC = ({ children }) => {
     localStorage.setItem('@GoBarber:user', JSON.stringify(user));
 
     api.defaults.headers.authorization = `Bearer ${token}`;
+    // eslint-disable-next-line no-console
+    console.log('passou aqui', `Bearer ${token}`);
 
     setData({ token, user });
   }, []);

@@ -31,7 +31,6 @@ const Barbers: React.FC = () => {
       setProviders(response.data);
     });
   }, []);
-  console.log(providers);
 
   return (
     <Container>
