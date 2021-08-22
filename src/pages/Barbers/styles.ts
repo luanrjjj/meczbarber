@@ -1,10 +1,13 @@
 import styled from 'styled-components';
 
-export const Container = styled.div``;
+export const Container = styled.div`
+  width: 100%;
+`;
 
 export const Header = styled.header`
   padding: 32px 0;
   background: #28262e;
+  width: 100%;
 `;
 
 export const HeaderContent = styled.div`
@@ -60,8 +63,9 @@ export const Profile = styled.div`
 
 export const Section = styled.section`
   margin-top: 48px;
-  margin-left: 20px;
-  margin-right: 20px;
+  margin-left: 10%;
+  margin-right: 10%;
+  max-width: 80%;
   > strong {
     color: #999591;
     font-size: 20px;
@@ -82,19 +86,10 @@ export const ProvidersList = styled.div`
   grid-gap: 1rem;
   list-style-type: none;
   max-width: 1100px;
-  margin-left: 10%;
-  span {
-    display: flex;
-    align-items: center;
-    color: #f4ede8;
-    width: 70px;
-    svg {
-      color: #ff9000;
-      margin-right: 8px;
-    }
-  }
+  margin-left: 5%;
+  margin-right: 7%;
 
-  div {
+  .Card {
     flex: 1;
     background: #3e3b47;
     display: flex;
@@ -104,6 +99,7 @@ export const ProvidersList = styled.div`
     margin-left: 24px;
     transition: filter 0.2s;
     cursor: pointer;
+
     img {
       width: 56px;
       height: 56px;
@@ -111,16 +107,60 @@ export const ProvidersList = styled.div`
       background: #ff9000;
     }
     p {
-      margin-left: 16px;
+      margin-left: 30px;
       color: #f4ede8;
       font-size: 16px;
       font-weight: 400;
       height: 30px;
+      position: relative;
+      padding-right: 10px;
+      padding-left: 10px;
     }
     &:hover {
       top: -2px;
       z-index: 999;
       filter: brightness(0.9);
+    }
+  }
+
+  .CardDetails {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-left: 5%;
+
+    .WorkDetails {
+      flex-direction: column;
+      display: block;
+      margin-left: 10%;
+
+      margin-right: 20%;
+
+      .DaysOfWork {
+        svg {
+          position: absolute;
+          margin-top: 1px;
+          margin-left: 5px;
+          color: #ff9000;
+        }
+        p {
+          padding-left: 10px;
+          width: 150px;
+        }
+      }
+
+      .HoursOfWork {
+        svg {
+          position: absolute;
+          margin-top: 1px;
+          margin-left: 5px;
+          color: #ff9000;
+        }
+        p {
+          padding: 0 10px;
+        }
+      }
     }
   }
 `;

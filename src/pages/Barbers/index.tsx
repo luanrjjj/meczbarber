@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 /* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from 'react';
-
+import { AiOutlineCalendar } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 import { FiClock, FiPower } from 'react-icons/fi';
 import { useAuth } from '../../hooks/auth';
@@ -43,7 +43,7 @@ const Barbers: React.FC = () => {
             <div>
               <span>Bem vindo,</span>
               <Link to="/profile">
-                <strong>{user?.name}</strong>
+                <strong>{user?.name}.</strong>
               </Link>
             </div>
           </Profile>
@@ -55,7 +55,7 @@ const Barbers: React.FC = () => {
       </Header>
 
       <Section>
-        <strong>Cabeleleiros</strong>
+        <strong> Escolha seu Cabeleleiro</strong>
         <ProvidersList>
           {providers.length === 0 && <p>Nenhum Cabeleleiros Disponível</p>}
           {providers.map(provider => (
@@ -65,10 +65,24 @@ const Barbers: React.FC = () => {
                 state: { provider },
               }}
               key={provider.id}
+              style={{ textDecoration: 'none' }}
             >
-              <div key={provider.id}>
+              <div className="Card" key={provider.id}>
                 <img src={provider.avatar_url} alt={provider.name} />
-                <p>{provider.name}</p>
+
+                <div className="CardDetails">
+                  <p>{provider.name.split(' ').slice(0, -1).join(' ')}</p>
+                  <div className="WorkDetails">
+                    <div className="DaysOfWork">
+                      <AiOutlineCalendar />
+                      <p> Segunda à Sexta</p>
+                    </div>
+                    <div className="HoursOfWork">
+                      <AiOutlineCalendar />
+                      <p> 08h às 18h</p>
+                    </div>
+                  </div>
+                </div>
               </div>
             </Link>
           ))}
