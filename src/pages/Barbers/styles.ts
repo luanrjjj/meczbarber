@@ -2,19 +2,22 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   width: 100%;
+  text-align: center;
 `;
 
 export const Header = styled.header`
   padding: 32px 0;
   background: #28262e;
   width: 100%;
+  display: block;
 `;
 
 export const HeaderContent = styled.div`
-  max-width: 1120px;
+  max-width: 100%;
   margin: 0 auto;
   display: flex;
   align-items: center;
+  margin-left: 10%;
   > img {
     height: 80px;
   }
@@ -63,9 +66,10 @@ export const Profile = styled.div`
 
 export const Section = styled.section`
   margin-top: 48px;
-  margin-left: 10%;
-  margin-right: 10%;
-  max-width: 80%;
+  max-width: 100%;
+  position: relative;
+  display: inline-block;
+  margin-bottom: 30px;
   > strong {
     color: #999591;
     font-size: 20px;
@@ -85,9 +89,11 @@ export const ProvidersList = styled.div`
   grid-auto-rows: auto;
   grid-gap: 1rem;
   list-style-type: none;
-  max-width: 1100px;
-  margin-left: 5%;
-  margin-right: 7%;
+  max-width: 100%;
+
+  @media (max-width: 900px) {
+    grid-template-columns: auto;
+  }
 
   .Card {
     flex: 1;
@@ -107,12 +113,10 @@ export const ProvidersList = styled.div`
       background: #ff9000;
     }
     p {
-      margin-left: 30px;
       color: #f4ede8;
       font-size: 16px;
       font-weight: 400;
       height: 30px;
-      position: relative;
       padding-right: 10px;
       padding-left: 10px;
     }
@@ -125,40 +129,46 @@ export const ProvidersList = styled.div`
 
   .CardDetails {
     display: flex;
-    flex-direction: row;
     align-items: center;
     justify-content: center;
-    margin-left: 5%;
+    width: 300px;
 
-    .WorkDetails {
-      flex-direction: column;
-      display: block;
+    .BarberName {
+      position: relative;
+      width: 100px;
       margin-left: 10%;
-
-      margin-right: 20%;
+      left: 0;
+    }
+    .WorkDetails {
+      margin-left: 20%;
+      margin-right: 10%;
+      margin-right: 0;
 
       .DaysOfWork {
+        display: flex;
         svg {
           position: absolute;
-          margin-top: 1px;
-          margin-left: 5px;
+          margin-right: 3px;
+          margin-top: 3px;
           color: #ff9000;
         }
         p {
-          padding-left: 10px;
-          width: 150px;
+          width: 170px;
+          margin-bottom: 1px;
         }
       }
 
       .HoursOfWork {
+        display: flex;
         svg {
           position: absolute;
-          margin-top: 1px;
-          margin-left: 5px;
+          margin-right: 3px;
+          margin-top: 4px;
           color: #ff9000;
         }
         p {
-          padding: 0 10px;
+          width: 170px;
+          left: 0px;
         }
       }
     }

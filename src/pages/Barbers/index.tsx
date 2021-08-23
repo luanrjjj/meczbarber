@@ -43,7 +43,7 @@ const Barbers: React.FC = () => {
             <div>
               <span>Bem vindo,</span>
               <Link to="/profile">
-                <strong>{user?.name}.</strong>
+                <strong>{user?.name.split(' ').slice(0, -1).join(' ')}</strong>
               </Link>
             </div>
           </Profile>
@@ -71,7 +71,9 @@ const Barbers: React.FC = () => {
                 <img src={provider.avatar_url} alt={provider.name} />
 
                 <div className="CardDetails">
-                  <p>{provider.name.split(' ').slice(0, -1).join(' ')}</p>
+                  <div className="BarberName">
+                    <p>{provider.name.split(' ').slice(0, -1).join(' ')}</p>
+                  </div>
                   <div className="WorkDetails">
                     <div className="DaysOfWork">
                       <AiOutlineCalendar />
