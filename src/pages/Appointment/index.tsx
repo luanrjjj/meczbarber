@@ -94,6 +94,12 @@ const Appointment: React.FC = () => {
         provider_id: selectedProvider.id,
         date,
       });
+
+      addToast({
+        type: 'success',
+        title: 'Agendamento criado com suceso',
+        description: 'Obrigado por ser nosso cliente',
+      });
     } catch (err) {
       addToast({
         type: 'error',

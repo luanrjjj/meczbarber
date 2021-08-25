@@ -156,7 +156,7 @@ const Dashboard: React.FC = () => {
             <div>
               <span>Bem vindo,</span>
               <Link to="/profile">
-                <strong>{user.name.split(' ').slice(0, -1).join(' ')}</strong>
+                <strong>{user.name}</strong>
               </Link>
             </div>
           </Profile>
