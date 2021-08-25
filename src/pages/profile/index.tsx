@@ -126,12 +126,18 @@ const Profile: React.FC = () => {
     },
     [addToast, updateUser],
   );
-
+  const barbers = [
+    'amanda.vieira@poli.ufrj.br',
+    'luanfreitas12@poli.ufrj.br',
+    'luanfreitas12@hotmail.com',
+    'antonio.vieira@poli.ufrj.br',
+  ];
+  const barberVerify = barbers.includes(user?.email);
   return (
     <Container>
       <header>
         <div>
-          <Link to="/dashboard">
+          <Link to={barberVerify ? '/dashboard' : '/barbers'}>
             <FiArrowLeft />
           </Link>
         </div>

@@ -4,7 +4,6 @@ import React, { useState, useEffect } from 'react';
 import { AiOutlineCalendar } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 import { FiClock, FiPower } from 'react-icons/fi';
-import { convertToObject } from 'typescript';
 import { useAuth } from '../../hooks/auth';
 import api from '../../services/api';
 import {
