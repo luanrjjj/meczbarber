@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { AiOutlineCalendar } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 import { FiClock, FiPower } from 'react-icons/fi';
+import { convertToObject } from 'typescript';
 import { useAuth } from '../../hooks/auth';
 import api from '../../services/api';
 import {
@@ -21,10 +22,12 @@ export interface Provider {
   id: string;
   name: string;
   avatar_url: string;
+  email: string;
 }
 const Barbers: React.FC = () => {
   const { user, signOut } = useAuth();
   const [providers, setProviders] = useState<Provider[]>([]);
+  const [newProviders, setNewProviders] = useState<Provider[]>([]);
 
   useEffect(() => {
     api.get('providers').then(response => {
@@ -32,6 +35,26 @@ const Barbers: React.FC = () => {
     });
   }, []);
 
+  console.log('providers', providers);
+
+  const barbers = [
+    'amanda.vieira@poli.ufrj.br',
+    'luanfreitas12@poli.ufrj.br',
+    'luanfreitas12@hotmail.com',
+    'antonio.vieira@poli.ufrj.br',
+  ];
+  const realProviders: Provider[] = [];
+
+  useEffect(() => {
+    providers.map(provider => {
+      if (barbers.includes(provider.email)) {
+        realProviders.push(providers[providers.indexOf(provider)]);
+        setNewProviders(realProviders);
+      }
+      return newProviders;
+    });
+  }, [providers]);
+  console.log(newProviders);
   return (
     <Container>
       <Header>
@@ -57,8 +80,10 @@ const Barbers: React.FC = () => {
       <Section>
         <strong> Escolha seu Cabeleleiro</strong>
         <ProvidersList>
-          {providers.length === 0 && <p>Nenhum Cabeleleiros Disponível</p>}
-          {providers.map(provider => (
+          {providers.length === 0 && !newProviders && (
+            <p>Nenhum Cabeleleiros Disponível</p>
+          )}
+          {newProviders.map(provider => (
             <Link
               to={{
                 pathname: `/appointment/${provider.name} `,
