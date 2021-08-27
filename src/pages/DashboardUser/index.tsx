@@ -69,7 +69,7 @@ const DashboardUser: React.FC = () => {
           <img src={logoImg} alt="GoBarber" />
 
           <Profile>
-            {user.avatar_url && <img src={user.avatar_url} alt={user.name} />}
+            {user?.avatar_url && <img src={user?.avatar_url} alt={user.name} />}
             <div>
               <span>Bem vindo,</span>
               <Link to="/profile">
@@ -101,7 +101,7 @@ const DashboardUser: React.FC = () => {
           {appointments.map(appointment => (
             <div className="Card" key={appointment.provider.id}>
               <img
-                src={appointment.provider.avatar_url}
+                src={appointment.provider?.avatar_url}
                 alt={appointment.provider.name}
               />
 
