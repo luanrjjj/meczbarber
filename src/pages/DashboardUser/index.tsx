@@ -99,7 +99,7 @@ const DashboardUser: React.FC = () => {
             <p className="TextWithouAppointment">Nenhum Horário Agendado</p>
           )}
           {appointments.map(appointment => (
-            <div className="Card" key={appointment.provider.id}>
+            <div className="Card" key={appointment.provider?.id}>
               <img
                 src={appointment.provider?.avatar_url}
                 alt={appointment.provider?.name}
