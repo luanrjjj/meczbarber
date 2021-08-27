@@ -62,11 +62,6 @@ const DashboardUser: React.FC = () => {
       setProviders(response.data);
     });
   }, []);
-
-  // eslint-disable-next-line no-console
-  console.log(appointments);
-  // eslint-disable-next-line no-console
-  console.log(providers);
   return (
     <Container>
       <Header>

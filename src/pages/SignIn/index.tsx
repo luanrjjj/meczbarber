@@ -35,8 +35,6 @@ const SignIn: React.FC = () => {
   ];
   */
   const history = useHistory();
-  // eslint-disable-next-line no-console
-  console.log(history);
 
   const handleSubmit = useCallback(
     async (data: SignInFormData) => {

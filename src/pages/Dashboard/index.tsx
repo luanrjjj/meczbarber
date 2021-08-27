@@ -133,7 +133,6 @@ const Dashboard: React.FC = () => {
       // eslint-disable-next-line new-cap
       return new Date(a.date).valueOf() - new Date(b.date).valueOf();
     });
-    console.log(2, appointments);
     return appointments.filter(appointment => {
       return parseISO(appointment.date).getHours() >= 12;
     });
@@ -145,7 +144,6 @@ const Dashboard: React.FC = () => {
     );
   }, [appointments]);
 
-  console.log(appointments);
   return (
     <Container>
       <Header>

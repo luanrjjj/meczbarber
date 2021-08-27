@@ -42,7 +42,6 @@ interface MonthAvailabilityItem {
 }
 
 const Appointment: React.FC = () => {
-  console.log('aqui');
   const { user, signOut } = useAuth();
   const { handle }: any = useParams();
   const location = useLocation();
@@ -52,10 +51,6 @@ const Appointment: React.FC = () => {
 
   const objectProvider: any = location.state;
   const selectedProvider: any = Object.values(objectProvider)[0];
-  console.log(selectedProvider.id);
-  // console.log('sp', selectedProvider);
-  console.log('handle', location);
-
   const minimumDate = useMemo(() => {
     const today = new Date();
 

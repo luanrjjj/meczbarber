@@ -34,8 +34,6 @@ const Barbers: React.FC = () => {
     });
   }, []);
 
-  console.log('providers', providers);
-
   const barbers = [
     'amanda.vieira@poli.ufrj.br',
     'luanfreitas12@poli.ufrj.br',

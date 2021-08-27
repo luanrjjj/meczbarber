@@ -49,7 +49,6 @@ const SignIn: React.FC = () => {
         });
 
         const token = location.search.replace('?token=', '');
-        console.log('token', token);
 
         await api.post('/password/reset', {
           password: data.password,
