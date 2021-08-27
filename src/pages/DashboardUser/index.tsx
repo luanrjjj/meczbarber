@@ -102,14 +102,14 @@ const DashboardUser: React.FC = () => {
             <div className="Card" key={appointment.provider.id}>
               <img
                 src={appointment.provider?.avatar_url}
-                alt={appointment.provider.name}
+                alt={appointment.provider?.name}
               />
 
               <div className="CardDetails">
                 <div className="BarberNameFather">
                   <div className="BarberName">
                     <p>
-                      {appointment.provider.name
+                      {appointment.provider?.name
                         .split(' ')
                         .slice(0, -1)
                         .join(' ')}
@@ -119,11 +119,11 @@ const DashboardUser: React.FC = () => {
                 <div className="WorkDetails">
                   <div className="DaysOfWork">
                     <AiOutlineCalendar />
-                    <p> {appointment.dayFormatted}</p>
+                    <p> {appointment?.dayFormatted}</p>
                   </div>
                   <div className="HoursOfWork">
                     <AiOutlineClockCircle />
-                    <p> {appointment.hourFormatted} </p>
+                    <p> {appointment?.hourFormatted} </p>
                   </div>
                 </div>
               </div>
