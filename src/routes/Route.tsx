@@ -41,7 +41,7 @@ const Route: React.FC<RouteProps> = ({
                 ? '/signin'
                 : barberVerify
                 ? '/dashboard'
-                : '/barbers',
+                : '/dashboardUser',
               state: { from: location },
             }}
           />

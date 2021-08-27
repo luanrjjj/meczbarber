@@ -47,6 +47,11 @@ const ForgotPassword: React.FC = () => {
           email: data.email,
         });
 
+        addToast({
+          type: 'success',
+          title: 'Recuperação de Senha',
+          description: 'Email de recuperação de senha enviado com sucesso',
+        });
         // history.push('/dashboard');
       } catch (err) {
         if (err instanceof Yup.ValidationError) {

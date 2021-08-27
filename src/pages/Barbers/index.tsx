@@ -53,7 +53,6 @@ const Barbers: React.FC = () => {
       return newProviders;
     });
   }, [providers]);
-  console.log(newProviders);
   return (
     <Container>
       <Header>

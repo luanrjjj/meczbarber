@@ -145,6 +145,7 @@ const Dashboard: React.FC = () => {
     );
   }, [appointments]);
 
+  console.log(appointments);
   return (
     <Container>
       <Header>
