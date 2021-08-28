@@ -96,6 +96,7 @@ const Appointment: React.FC = () => {
         description: 'Obrigado por ser nosso cliente',
       });
     } catch (err) {
+      console.log(err);
       addToast({
         type: 'error',
         title: 'Erro ao criar agendamento',
